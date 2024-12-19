@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>MainWindow/folder_common.svg</file>
+        <file>MainWindow/folder_selected.svg</file>
+        <file>MainWindow/setting_common.svg</file>
+        <file>MainWindow/sync_common.svg</file>
+        <file>MainWindow/sync_selected.svg</file>
+        <file>MainWindow/transfer_common.svg</file>
+        <file>MainWindow/transfer_selected.svg</file>
+    </qresource>
+</RCC>

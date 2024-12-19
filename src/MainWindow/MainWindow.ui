@@ -18,7 +18,7 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>91</width>
+     <width>221</width>
      <height>501</height>
     </rect>
    </property>
@@ -36,6 +36,19 @@
     </property>
     <property name="text">
      <string>TanCloud</string>
+    </property>
+   </widget>
+   <widget class="SideButton" name="file" native="true">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>120</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
   </widget>
@@ -76,6 +89,14 @@
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SideButton</class>
+   <extends>QWidget</extends>
+   <header>SideButton.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
