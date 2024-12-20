@@ -7,5 +7,7 @@
         <file>MainWindow/sync_selected.svg</file>
         <file>MainWindow/transfer_common.svg</file>
         <file>MainWindow/transfer_selected.svg</file>
+        <file>MainWindow/share_common.svg</file>
+        <file>MainWindow/share_selected.svg</file>
     </qresource>
 </RCC>
