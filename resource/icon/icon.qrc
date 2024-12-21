@@ -9,5 +9,14 @@
         <file>MainWindow/transfer_selected.svg</file>
         <file>MainWindow/share_common.svg</file>
         <file>MainWindow/share_selected.svg</file>
+        <file>MainWindow/close.svg</file>
+        <file>MainWindow/max.svg</file>
+        <file>MainWindow/min.svg</file>
+        <file>MainWindow/window.svg</file>
+        <file>MainWindow/back_able.svg</file>
+        <file>MainWindow/back_unable.svg</file>
+        <file>MainWindow/next_able.svg</file>
+        <file>MainWindow/next_unable.svg</file>
+        <file>MainWindow/cloud.svg</file>
     </qresource>
 </RCC>

@@ -15,11 +15,11 @@ SideButton::SideButton(QWidget *parent)
     m_layout.setAlignment(Qt::AlignCenter);  // 使按钮和标签居中
 
     // 设置初始大小
-    m_btn.setFixedSize(30, 30);
-    m_label.setFixedSize(30, 30);
+    m_btn.setFixedSize(25, 25);
+    m_label.setFixedSize(25, 25);
 
-    m_common_label = "font-size: 14px; color: black;";
-    m_high_light_label = "font-size: 14px; color: #0078D4;";
+    m_common_label = "font-size: 12px; color: black;";
+    m_high_light_label = "font-size: 12px; color: #0078D4;";
 
     m_btn.setStyleSheet("background-color: transparent;");
     m_label.setStyleSheet(m_common_label);
@@ -78,11 +78,11 @@ void SideButton::setBtnIcon()
     QSize buttonSize = m_btn.size(); // 获取 QLabel 的尺寸
 
     if (flag) {
-        QPixmap scaledPixmap = m_high_light_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        m_btn.setPixmap(scaledPixmap); // 设置缩放后的图片
+        QPixmap scaled_pixmap = m_high_light_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        m_btn.setPixmap(scaled_pixmap); // 设置缩放后的图片
     } else {
-        QPixmap scaledPixmap = m_common_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        m_btn.setPixmap(scaledPixmap); // 设置缩放后的图片
+        QPixmap scaled_pixmap = m_common_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        m_btn.setPixmap(scaled_pixmap); // 设置缩放后的图片
     }
 }
 
