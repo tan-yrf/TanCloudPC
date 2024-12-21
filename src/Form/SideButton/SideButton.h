@@ -6,7 +6,6 @@
  */
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QPushButton>
 #include <QMouseEvent>
 #include <QLabel>
 class SideButton : public QWidget
@@ -14,8 +13,9 @@ class SideButton : public QWidget
     Q_OBJECT
 public:
     explicit SideButton(QWidget *parent = nullptr);
-    void Init(const QString& common, const QString& hight_light, const QString& text);
-
+    void init(const QString& common, const QString& hight_light, const QString& text);
+    void setWidthSize(int width, int height);
+    void setIconSize(int width, int height);
 protected:
     // 鼠标悬停，点击，离开事件。主要是样式改变。
     void mousePressEvent(QMouseEvent* event) override;
@@ -23,11 +23,14 @@ protected:
     void leaveEvent(QEvent *event) override;
 
 private:
-    QIcon m_common_icon;
-    QIcon m_high_light_icon;
+    void setBtnIcon();
+
+private:
+    QPixmap m_common_icon;
+    QPixmap m_high_light_icon;
 
     QVBoxLayout m_layout;
-    QPushButton m_btn;
+    QLabel m_btn;
     QLabel m_label;
 
     QString m_common_label;

@@ -53,6 +53,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION  # 手动结束finalization，后续需要执行qt_finalize_executable
         ${PROJECT_SOURCES}   # 将项目源文件加入
         resource/icon/icon.qrc
+
+
     )
 else()
     add_executable(TanCloudPc

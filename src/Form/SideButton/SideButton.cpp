@@ -11,36 +11,54 @@ SideButton::SideButton(QWidget *parent)
     m_layout.setContentsMargins(5, 5, 5, 5);
     m_layout.setSpacing(5);
 
-    m_common_label = "font-size: 14px; color: black;";
-    m_high_light_label = "font-size: 14px; color: #0078D4;";
+    // 设置对齐方式为居中
+    m_layout.setAlignment(Qt::AlignCenter);  // 使按钮和标签居中
+
+    // 设置初始大小
+    m_btn.setFixedSize(25, 25);
+    m_label.setFixedSize(25, 25);
+
+    m_common_label = "font-size: 12px; color: black;";
+    m_high_light_label = "font-size: 12px; color: #0078D4;";
 
     m_btn.setStyleSheet("background-color: transparent;");
     m_label.setStyleSheet(m_common_label);
     m_label.setAlignment(Qt::AlignCenter);
 }
 
-void SideButton::Init(const QString& common, const QString& hight_light, const QString &text) {
-    m_common_icon = QIcon(common);
-    m_high_light_icon = QIcon(hight_light);
-
-    qDebug() << "common size" << QPixmap(common).size();
-    qDebug() << "high light size " << QPixmap(hight_light).size();
+void SideButton::init(const QString& common, const QString& hight_light, const QString &text) {
+    m_common_icon = QPixmap(common);
+    m_high_light_icon = QPixmap(hight_light);
     m_label.setText(text);
-    m_btn.setIcon(m_common_icon);
+    flag = false;
+    setBtnIcon();
 }
+
+void SideButton::setWidthSize(int width, int height)
+{
+
+}
+
+void SideButton::setIconSize(int width, int height)
+{
+    m_btn.setFixedWidth(width);
+    m_btn.setFixedHeight(height);
+    setBtnIcon();
+}
+
 
 // 处理鼠标点击事件,点击区域内就相当于点击按钮
 void SideButton::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
         if (flag) {
-            m_btn.setIcon(m_common_icon);
-            m_label.setStyleSheet(m_common_label);
             flag = false;
+            setBtnIcon();
+            m_label.setStyleSheet(m_common_label);
         } else {
-            m_btn.setIcon(m_high_light_icon);
-            m_label.setStyleSheet(m_high_light_label);
             flag = true;
+            setBtnIcon();
+            m_label.setStyleSheet(m_high_light_label);
         }
     }
 }
@@ -53,5 +71,18 @@ void SideButton::enterEvent(QEvent *event)
 void SideButton::leaveEvent(QEvent *event)
 {
     setStyleSheet("background-color: transparent;");
+}
+
+void SideButton::setBtnIcon()
+{
+    QSize buttonSize = m_btn.size(); // 获取 QLabel 的尺寸
+
+    if (flag) {
+        QPixmap scaled_pixmap = m_high_light_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        m_btn.setPixmap(scaled_pixmap); // 设置缩放后的图片
+    } else {
+        QPixmap scaled_pixmap = m_common_icon.scaled(buttonSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        m_btn.setPixmap(scaled_pixmap); // 设置缩放后的图片
+    }
 }
 
