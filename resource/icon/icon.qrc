@@ -18,5 +18,16 @@
         <file>MainWindow/next_able.svg</file>
         <file>MainWindow/next_unable.svg</file>
         <file>MainWindow/cloud.svg</file>
+        <file>FIle/big_img.svg</file>
+        <file>FIle/cell.svg</file>
+        <file>FIle/create_folder.svg</file>
+        <file>FIle/filter.svg</file>
+        <file>FIle/list.svg</file>
+        <file>FIle/plus.svg</file>
+        <file>FIle/refresh.svg</file>
+        <file>FIle/sort.svg</file>
+        <file>FIle/select_down.svg</file>
+        <file>FIle/select_no.svg</file>
+        <file>FIle/select_up.svg</file>
     </qresource>
 </RCC>

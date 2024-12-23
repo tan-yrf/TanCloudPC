@@ -585,8 +585,7 @@ border: none;</string>
           </item>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
-            <widget class="QWidget" name="page"/>
-            <widget class="QWidget" name="page_2"/>
+            <widget class="HomePage" name="homepage"/>
            </widget>
           </item>
          </layout>
@@ -603,6 +602,12 @@ border: none;</string>
    <class>SideButton</class>
    <extends>QWidget</extends>
    <header>SideButton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>HomePage</class>
+   <extends>QWidget</extends>
+   <header>homepage.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
