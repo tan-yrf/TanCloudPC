@@ -5,9 +5,6 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 # 设置源文件
 set(FILE_SOURCES
-    FileHomePage.h 
-    FileHomePage.cpp 
-    FileHomePage.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
