@@ -25,6 +25,9 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 # 这样，MainWindow模块将成为项目的一部分
 add_subdirectory(src/MainWindow)
 
+# 添加 src/File 项目
+add_subdirectory(src/File)
+
 # 引用 Form/SideButton 库
 add_subdirectory(src/Form/SideButton ${CMAKE_BINARY_DIR}/Form/SideButton)
 
@@ -32,6 +35,7 @@ add_subdirectory(src/Form/SideButton ${CMAKE_BINARY_DIR}/Form/SideButton)
 
 #########################################################################################
 # 添加头文件
+target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/File)
 
 # 将 SideButton 的头文件路径包含到 MainWindow 中
 target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/Form/SideButton)
@@ -53,8 +57,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION  # 手动结束finalization，后续需要执行qt_finalize_executable
         ${PROJECT_SOURCES}   # 将项目源文件加入
         resource/icon/icon.qrc
-
-
     )
 else()
     add_executable(TanCloudPc
