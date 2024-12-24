@@ -29,5 +29,11 @@
         <file>FIle/select_down.svg</file>
         <file>FIle/select_no.svg</file>
         <file>FIle/select_up.svg</file>
+        <file>Transfer/download.svg</file>
+        <file>Transfer/upload.svg</file>
+        <file>Transfer/clear.svg</file>
+        <file>Transfer/cancel.svg</file>
+        <file>Transfer/start.svg</file>
+        <file>Transfer/stop.svg</file>
     </qresource>
 </RCC>

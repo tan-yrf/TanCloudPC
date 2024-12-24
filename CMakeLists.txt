@@ -25,21 +25,32 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 # 这样，MainWindow模块将成为项目的一部分
 add_subdirectory(src/MainWindow)
 
-# 添加 src/File 项目
-add_subdirectory(src/File)
-
-# 引用 Form/SideButton 库
+# 添加自定义的侧边栏按钮模块
 add_subdirectory(src/Form/SideButton ${CMAKE_BINARY_DIR}/Form/SideButton)
 
+# 添加文件模块
+add_subdirectory(src/File)
+
+# 添加传输模块
+add_subdirectory(src/Transfer)
+
+# 添加分享模块
+add_subdirectory(src/Share)
+
 #########################################################################################
 
 #########################################################################################
-# 添加头文件
+# 添加文件模块的头文件到MainWindow模块
 target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/File)
 
-# 将 SideButton 的头文件路径包含到 MainWindow 中
+# 将SideButton 的头文件路径包含到 MainWindow 中
 target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/Form/SideButton)
 
+# 将 传输 模块的头文件包含到MainWindow中
+target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/Transfer)
+
+# 将 分享 模块的头文件包含到MainWindow中
+target_include_directories(MainWindow PUBLIC ${CMAKE_SOURCE_DIR}/src/Share)
 #########################################################################################
 
 

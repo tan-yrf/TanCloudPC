@@ -9,6 +9,13 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+enum SideBtnType {
+    file,
+    transfer,
+    share,
+    setting
+};
+
 class MainWindow : public QWidget
 {
     Q_OBJECT
@@ -24,13 +31,13 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
 
 private slots:
+    void onSideBtnClicked(SideBtnType type);
     void on_min_clicked();
     void on_max_clicked();
     void on_close_clicked();
 
 private:
     void initSideBar();
-    void initTopBar();
     void initWindowStyle();
 private:
     Ui::MainWindow *ui;

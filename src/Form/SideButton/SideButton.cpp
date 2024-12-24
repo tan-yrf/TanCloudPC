@@ -24,6 +24,7 @@ SideButton::SideButton(QWidget *parent)
     m_btn.setStyleSheet("background-color: transparent;");
     m_label.setStyleSheet(m_common_label);
     m_label.setAlignment(Qt::AlignCenter);
+
 }
 
 void SideButton::init(const QString& common, const QString& hight_light, const QString &text) {
@@ -34,11 +35,6 @@ void SideButton::init(const QString& common, const QString& hight_light, const Q
     setBtnIcon();
 }
 
-void SideButton::setWidthSize(int width, int height)
-{
-
-}
-
 void SideButton::setIconSize(int width, int height)
 {
     m_btn.setFixedWidth(width);
@@ -46,31 +42,29 @@ void SideButton::setIconSize(int width, int height)
     setBtnIcon();
 }
 
+// 切换成普通模式
+void SideButton::common()
+{
+    flag = false;
+    setBtnIcon();
+    m_label.setStyleSheet(m_common_label);
+}
+
+// 切换成被选中的样式
+void SideButton::selected()
+{
+    flag = true;
+    setBtnIcon();
+    m_label.setStyleSheet(m_high_light_label);
+}
+
 
 // 处理鼠标点击事件,点击区域内就相当于点击按钮
 void SideButton::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
-        if (flag) {
-            flag = false;
-            setBtnIcon();
-            m_label.setStyleSheet(m_common_label);
-        } else {
-            flag = true;
-            setBtnIcon();
-            m_label.setStyleSheet(m_high_light_label);
-        }
+        emit clicked();
     }
-}
-
-void SideButton::enterEvent(QEvent *event)
-{
-    setStyleSheet("background-color: #EBEDF1;");
-}
-
-void SideButton::leaveEvent(QEvent *event)
-{
-    setStyleSheet("background-color: transparent;");
 }
 
 void SideButton::setBtnIcon()

@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -296,6 +296,7 @@
   </widget>
  </widget>
  <resources>
+  <include location="../../resource/icon/icon.qrc"/>
   <include location="../../resource/icon/icon.qrc"/>
  </resources>
  <connections/>

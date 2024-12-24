@@ -139,17 +139,17 @@
              <number>50</number>
             </property>
             <item>
-             <widget class="SideButton" name="file" native="true">
+             <widget class="SideButton" name="btn_file" native="true">
               <property name="styleSheet">
                <string notr="true"/>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="SideButton" name="transfer" native="true"/>
+             <widget class="SideButton" name="btn_transfer" native="true"/>
             </item>
             <item>
-             <widget class="SideButton" name="share" native="true"/>
+             <widget class="SideButton" name="btn_share" native="true"/>
             </item>
            </layout>
           </item>
@@ -169,7 +169,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="SideButton" name="setting" native="true"/>
+             <widget class="SideButton" name="btn_setting" native="true"/>
             </item>
            </layout>
           </item>
@@ -271,6 +271,10 @@ border: none;</string>
                    <property name="text">
                     <string/>
                    </property>
+                   <property name="icon">
+                    <iconset resource="../../resource/icon/icon.qrc">
+                     <normaloff>:/MainWindow/back_unable.svg</normaloff>:/MainWindow/back_unable.svg</iconset>
+                   </property>
                    <property name="iconSize">
                     <size>
                      <width>25</width>
@@ -305,6 +309,10 @@ border: none;</string>
                    </property>
                    <property name="text">
                     <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../../resource/icon/icon.qrc">
+                     <normaloff>:/MainWindow/next_unable.svg</normaloff>:/MainWindow/next_unable.svg</iconset>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -497,6 +505,10 @@ border: none;</string>
                     <property name="text">
                      <string/>
                     </property>
+                    <property name="icon">
+                     <iconset resource="../../resource/icon/icon.qrc">
+                      <normaloff>:/MainWindow/min.svg</normaloff>:/MainWindow/min.svg</iconset>
+                    </property>
                     <property name="iconSize">
                      <size>
                       <width>15</width>
@@ -531,6 +543,10 @@ border: none;</string>
                     </property>
                     <property name="text">
                      <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../../resource/icon/icon.qrc">
+                      <normaloff>:/MainWindow/max.svg</normaloff>:/MainWindow/max.svg</iconset>
                     </property>
                     <property name="iconSize">
                      <size>
@@ -567,6 +583,10 @@ border: none;</string>
                     <property name="text">
                      <string/>
                     </property>
+                    <property name="icon">
+                     <iconset resource="../../resource/icon/icon.qrc">
+                      <normaloff>:/MainWindow/close.svg</normaloff>:/MainWindow/close.svg</iconset>
+                    </property>
                     <property name="iconSize">
                      <size>
                       <width>15</width>
@@ -586,6 +606,8 @@ border: none;</string>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <widget class="HomePage" name="homepage"/>
+            <widget class="Transfer" name="transfer"/>
+            <widget class="Share" name="share"/>
            </widget>
           </item>
          </layout>
@@ -610,7 +632,23 @@ border: none;</string>
    <header>homepage.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>Transfer</class>
+   <extends>QWidget</extends>
+   <header>transfer.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Share</class>
+   <extends>QWidget</extends>
+   <header>share.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../resource/icon/icon.qrc"/>
+  <include location="../../resource/icon/icon.qrc"/>
+  <include location="../../resource/icon/icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
