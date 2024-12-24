@@ -14,13 +14,15 @@ class SideButton : public QWidget
 public:
     explicit SideButton(QWidget *parent = nullptr);
     void init(const QString& common, const QString& hight_light, const QString& text);
-    void setWidthSize(int width, int height);
     void setIconSize(int width, int height);
+    void common();
+    void selected();
+
 protected:
-    // 鼠标悬停，点击，离开事件。主要是样式改变。
     void mousePressEvent(QMouseEvent* event) override;
-    void enterEvent(QEvent *event);
-    void leaveEvent(QEvent *event) override;
+
+signals:
+    void clicked();
 
 private:
     void setBtnIcon();

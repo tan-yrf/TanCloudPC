@@ -15,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     initSideBar();
-    initTopBar();
     initWindowStyle();
+    onSideBtnClicked(SideBtnType::file);
 }
 
 MainWindow::~MainWindow() {
@@ -59,29 +59,55 @@ void MainWindow::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);
 }
 
+void MainWindow::onSideBtnClicked(SideBtnType type)
+{
+    switch (type) {
+    case SideBtnType::file:
+        ui->btn_file->selected();
+        ui->btn_transfer->common();
+        ui->btn_share->common();
+        ui->stackedWidget->setCurrentIndex(0);
+        break;
+    case SideBtnType::transfer:
+        ui->btn_file->common();
+        ui->btn_transfer->selected();
+        ui->btn_share->common();
+        ui->stackedWidget->setCurrentIndex(1);
+        break;
+    case SideBtnType::share:
+        ui->btn_file->common();
+        ui->btn_transfer->common();
+        ui->btn_share->selected();
+        ui->stackedWidget->setCurrentIndex(2);
+        break;
+    default:
+        break;
+    }
+}
+
 // 初始化侧边栏的样式
 void MainWindow::initSideBar() {
-    ui->file->init(":/MainWindow/folder_common.svg", ":/MainWindow/folder_selected.svg", u8"文件");
-    ui->transfer->init(":/MainWindow/transfer_common.svg", ":/MainWindow/transfer_selected.svg", u8"传输");
-    ui->share->init(":/MainWindow/share_common.svg", ":/MainWindow/share_selected.svg", u8"分享");
-    ui->setting->init(":/MainWindow/setting_common.svg", ":/MainWindow/setting_common.svg", u8"");
-    ui->setting->setIconSize(20, 20);
+    ui->btn_file->init(":/MainWindow/folder_common.svg", ":/MainWindow/folder_selected.svg", u8"文件");
+    ui->btn_transfer->init(":/MainWindow/transfer_common.svg", ":/MainWindow/transfer_selected.svg", u8"传输");
+    ui->btn_share->init(":/MainWindow/share_common.svg", ":/MainWindow/share_selected.svg", u8"分享");
+    ui->btn_setting->init(":/MainWindow/setting_common.svg", ":/MainWindow/setting_common.svg", u8"");
+    ui->btn_setting->setIconSize(20, 20);
 
     QPixmap sign(":/MainWindow/cloud.svg");
     QPixmap scale_sign = sign.scaled(ui->sign->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->sign->setPixmap(scale_sign);
 
+    connect(ui->btn_file, &SideButton::clicked, this, [this]{
+        onSideBtnClicked(SideBtnType::file);
+    });
+    connect(ui->btn_transfer, &SideButton::clicked, this, [this]{
+        onSideBtnClicked(SideBtnType::transfer);
+    });
+    connect(ui->btn_share, &SideButton::clicked, this, [this]{
+        onSideBtnClicked(SideBtnType::share);
+    });
 }
 
-// 初始化顶栏的样式
-void MainWindow::initTopBar() {
-    ui->min->setIcon(QIcon(":/MainWindow/min.svg"));
-    ui->max->setIcon(QIcon(":/MainWindow/max.svg"));
-    ui->close->setIcon(QIcon(":/MainWindow/close.svg"));
-
-    ui->back->setIcon(QIcon(":/MainWindow/back_unable.svg"));
-    ui->next->setIcon(QIcon(":/MainWindow/next_unable.svg"));
-}
 
 // 初始化窗口样式
 void MainWindow::initWindowStyle()

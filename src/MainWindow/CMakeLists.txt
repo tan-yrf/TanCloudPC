@@ -19,6 +19,12 @@ target_link_libraries(MainWindow PRIVATE SideButton)
 # 链接 File 库
 target_link_libraries(MainWindow PRIVATE File)
 
+# 链接 Transfer 库
+target_link_libraries(MainWindow PRIVATE Transfer)
+
+# 链接 Share 库
+target_link_libraries(MainWindow PRIVATE Share)
+
 # 将 MainWindow 依赖于 QtWidgets
 target_link_libraries(MainWindow PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
